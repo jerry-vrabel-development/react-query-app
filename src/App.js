@@ -1,8 +1,12 @@
 import React from "react";
-import { useQuery } from "react-query";
+import GithubUser from "./githubUser";
 
 const App = () => {
-  return <h1>Hello World App</h1>;
+  return (
+    <div classname="App">
+      <GithubUser username="jerry-vrabel-development" />
+    </div>
+  );
 };
 
 export default App;

@@ -9,5 +9,8 @@ function fetchUser(username) {
 
 export default function GithubUser({ username }) {
   const userQuery = useQuery([username], () => fetchUser(username));
-  const date = userQuery.data;
+  const data = userQuery.data;
+  if (userQuery.isLoading) return <p>Loading...</p>;
+  if (userQuery.isError) return <p>Error: {userQuery.error.message}</p>;
+  return <pre>{JSON.stringify(data, null, 2)}</pre>;
 }
